@@ -79,10 +79,13 @@ teller.last = null;
 
 */
 
+
+
 let isDrawing = false;
 let age = 18;
 const ofAge = age > 19;
 console.log(ofAge);
 
+console.log (`My name is ${age}`)
 age = 100;
 let age2 = 100;
