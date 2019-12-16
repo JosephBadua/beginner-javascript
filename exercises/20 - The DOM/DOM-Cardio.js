@@ -90,7 +90,7 @@ div.append(card);
 // make out delete function
 // loop over them and attach a listener
 function deleteCard(event) {
-  event.currentTarget.this.parentElement.remove();
+  event.currentTarget.parentElement.remove();
   console.log(`DELETE`);
 }
 
