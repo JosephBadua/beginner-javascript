@@ -1,44 +1,34 @@
-const cardButtons = document.querySelectorAll('.card button');
-const modalOuter = document.querySelector('.modal-outer');
-const modalInner = document.querySelector('.modal-inner');
-
-function handleCardButtonClick(event) {
-  const button = event.currentTarget;
-  const card = button.closest('.card');
-  // Grab the image src
-  const imgSrc = card.querySelector('img').src;
+const buttons = document.querySelectorAll(`.card button`);
+const inner = document.querySelector(`.modal-inner`);
+const outer = document.querySelector(`.modal-outer`);
+function buttonClicked(event) {
+  const stuff = event.currentTarget;
+  const card = stuff.closest(`.card`);
+  const img = card.querySelector(`img`).src;
   const desc = card.dataset.description;
-  const name = card.querySelector('h2').textContent;
-  // populate the modal with the new info
-  modalInner.innerHTML = `
-    <img width="600" height="600" src="${imgSrc.replace(
-      '200',
-      '600'
-    )}" alt="${name}"/>
-    <p>${desc}</p>
-  `;
-  // show the modal
-  modalOuter.classList.add('open');
-}
+  const title = card.querySelector(`h2`).textContent;
+  inner.innerHTML = `
+  <img width="600" height="600" src="${img.replace(200, 600)}" alt="${title}"/>
+  <p>${desc}</p>`;
 
-cardButtons.forEach(button =>
-  button.addEventListener('click', handleCardButtonClick)
-);
+  outer.classList.add(`open`);
+}
 
 function closeModal() {
-  modalOuter.classList.remove('open');
+  outer.classList.remove(`open`);
 }
 
-modalOuter.addEventListener('click', function(event) {
-  const isOutside = !event.target.closest('.modal-inner');
-  if (isOutside) {
+outer.addEventListener(`click`, function(event) {
+  const isOutside = event.target.closest(`.modal-inner`);
+  if (isOutside == null) {
     closeModal();
   }
 });
 
-window.addEventListener('keydown', event => {
-  console.log(event);
-  if (event.key === 'Escape') {
+buttons.forEach(button => button.addEventListener(`click`, buttonClicked));
+
+window.addEventListener(`keydown`, function(event) {
+  if (event.key === `Escape`) {
     closeModal();
   }
 });
