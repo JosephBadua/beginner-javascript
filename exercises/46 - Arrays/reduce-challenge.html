@@ -1,20 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Reduce!</title>
+    <link rel="stylesheet" href="../../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Reduce!</title>
-  <link rel="stylesheet" href="../../base.css">
-</head>
+  <body>
+    <script>
+      // Grab all the text from a web page
+      // Count how many times each letter and number occurs
+      const text = `
 
-<body>
-  <script>
-    // Grab all the text from a web page
-    // Count how many times each letter and number occurs
+      ×
+      AlgoExpert
+      Ace the Coding Interviews
+
+      What is AlgoExpert
+      Meet the Team
+      Content
+      Purchase
+
+      AlgoExpert
+      Ace the Coding Interviews
+      What is AlgoExpert?
+      Content
+      AlgoExpert
+      Coding Interview Questions
+      Our library of practice problems to ace the programming interviews.
+
+      Data Structures Crash Course
+      The foundational knowledge to tackle any algorithm question.
+
+      Coding Interview Tips
+      A collection of interview techniques that'll make you stand out.
+
+      Meet the Team
+      Purchase
+      Log In
+      Welcome, AlgoExpert User!
+
+      Account Type: Unrecognized
+
+      You don't own AlgoExpert
+
+      Log Out
 
 
-  </script>
-</body>
 
+
+
+      What is AlgoExpert?
+
+
+      Watch the Video
+      85 Hand-Picked Questions
+      Coding interview prep is a numbers game that many candidates lose. We've hand-picked 85 of the best coding interview questions to truly prepare you. Learn more.
+
+      55+ Hours Of Video Explanations
+      Algorithms are tough to learn on paper. Each and every one of our questions is accompanied by a two-part video explanation to maximize learning. That's over 55 hours of content, all at your fingertips. Learn more.
+
+      Data Structures Crash Course
+      Data structures are the pillars of coding interviews. Our video series gives you the foundational knowledge you need to be well-versed in all of the popular data structures. Learn more.
+
+      Solutions In 7 Languages
+      Not everyone speaks the same programming language. We give you solutions to every single question in 7 different languages: JavaScript, Python, Swift, C++, Java, C#, and Go. Learn more.
+
+      Code-Execution Environment
+      Coding out solutions to algorithm problems is the best way to practice. Our code-execution environment lets you type out your answers and run them against our test cases right here on the website. Learn more.
+
+      Space-Time Complexity Analyses
+      Understanding how much memory an algorithm uses and how fast it runs is exceedingly important. All of our explanations include a rigorous space-time complexity analysis. Learn more.
+
+      Experience-Backed Interview Tips
+      Algorithm interviews go beyond just algorithms and data structures. Our coding interview tips video series gives you crucial tips and tricks that'll make you stand out.
+
+      A Better Way to Prep for Tech Interviews.
+      1
+      2
+      3
+      4
+      5
+      6
+      7
+      8
+      9
+      10
+      11
+      const you = new SWEngineer();
+
+      let techInterviewsAreHard = true;
+
+      while (techInterviewsAreHard) {
+        you.useAlgoExpert();
+      }
+
+      you.aceTechInterviews()
+        .then(() => you.getDreamJob())
+        .catch(() => you.useAlgoExpertMore());
+      Study With AlgoExpert
+      Study With Other Materials
+      With Great Outcomes.
+      Our customers have gotten offers from awesome companies.
+      And Thousands of Satisfied Engineers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+      Read More Testimonials
+
+      85 Questions Spanning 14 Categories.
+      If you want to ace the tech interview, being well-versed in all common data structures and popular problem-solving methods is paramount. With 85 questions spanning 14 categories and 5 difficulty levels, we've got you covered.
+
+      Explore Questions
+      Binary Search Trees
+      Binary Trees
+      Linked Lists
+      Searching
+      Strings
+      Arrays
+      Stacks
+      Dynamic Programming
+      Famous Algorithms
+      Recursion
+      Sorting
+      Graphs
+      Heaps
+      Tries
+
+      Our Videos Set Us Apart.
+      The truth is that interview questions and algorithms are difficult. Even more difficult is trying to understand the inner workings of a complex algorithm from a book or from a poorly thought-out video shot on your grandma's camera. Our crisp 1080p videos boast crystal-clear audio and are strategically divided into two parts to give you the most comprehensive explanations to questions. That's over 55 hours of content specifically tailored to make interview questions and algorithms easy.
+
+      Conceptual Overview
+      Our videos all start with an in-depth conceptual overview of the algorithm at hand: how to approach it, how to implement it, how to optimize it, and how to analyze its space-time complexity. See an example.
+
+      Code Walkthrough
+      Our videos all end with a complete walkthrough from start to finish of the actual code implementation of the algorithm. This is done in Python, since Python is very easy to read. See an example.
+
+      Sample Video
+
+
+
+      Data Structures Crash Course
+      Algorithms and data structures go hand in hand; the solution to virtually any coding interview problem will require the implementation of some kind of abstract data type in order to access and manipulate information.
+
+      Our video series on data structures is the ultimate crash course on this important topic. We cover fundamental concepts pertaining to memory, complexity analysis, and Big O notation, and then break down popular data structures to give you a detailed look at how these concepts are applied under the hood. Linked Lists and Binary Trees will never instill fear in your heart again.
+
+      Start the Course
+
+      We Speak 7 Languages.
+      There's nothing more frustrating than opening an interview prep book, only to find a bunch of solutions in a programming language that you don't know. That's why all of our questions come with complete written solutions in 7 popular languages.
+
+      JavaScript, for all you Web Developers
+      Python, for all you Data Scientists
+      Swift, for all you iOS Engineers
+      C++, for all you Old Schoolers
+      Java, for all you Masochists
+      C#, for all you Microsofters
+      Go, for all you Kool Kidz
+
+
+      Hey there! Do you want to ace your upcoming tech interviews?|
+      Of course!
+      Nope.
+
+      The Perfect Practice Environment.
+      In an ideal world, you would prepare for tech interviews by coding out solutions to problems in your language of choice, getting some hints if necessary, running your code against test cases, and looking at solutions when done. We've turned that ideal world into the real world. Pick a language. Read the prompt. Write your solution. Get some hints. Run your code. Check the output. Pass the tests. View our solution. All within the same workspace.
+
+      Note: this is a sample workspace. Any work done on this page will not actually be saved, even if you are logged in.
+
+
+      Big O Notation Made Easy.
+      Time Complexity
+      Why does building a heap only take O(N) time? What does O(logN) really mean? What's the time-complexity difference between appending a value to an array and adding a character to a string? We address all of these things, and more.
+
+      Space Complexity
+      You know that thing you're kinda familiar with but not really? Yeah, that's space complexity. And it turns out it's pretty important. All of our video explanations dive deep into space-complexity to turn you into a well rounded Big O expert.
+
+      Become an AlgoExpert
+      Copyright © 2019 AlgoExpert, LLC. All rights reserved.
+      Contact Us
+      FAQ
+      Reviews
+      Become An Affiliate
+      Legal Stuff
+      Privacy Policy
+          `;
+
+      function filterLetters(words) {
+        return words.match(/[a-z0-9]/i);
+      }
+
+      function lowercase(char) {
+        return char.toLowerCase();
+      }
+      function instanceReduce(letters, character) {
+        letters[character]
+          ? (letters[character] = letters[character] + 1)
+          : (letters[character] = 1);
+        return letters;
+      }
+      const everything = text.split("");
+      console.log(everything);
+      const result = everything
+        .filter(filterLetters)
+        .map(lowercase)
+        .reduce(instanceReduce, {});
+      console.log(result);
+
+      function sort(a, b) {
+        return b[1] - a[1];
+      }
+      const final = Object.entries(result).sort(sort);
+      console.log(final);
+    </script>
+  </body>
 </html>
