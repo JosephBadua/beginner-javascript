@@ -1,3 +1,16 @@
+const fromSelect = document.querySelector(`[name="from_currency"]`);
+const fromInput = document.querySelector(`[name="from_amount"]`);
+const toSelect = document.querySelector(`[name="to_currency"]`);
+
+const toAmount = document.querySelector('.to_amount');
+
+
+const endPoint = `https://api.exchangeratesapi.io/latest`
+
+const ratesByBase = {};
+
+const form = document.querySelector(`.app form`);
+
 const currencies = {
   USD: 'United States Dollar',
   AUD: 'Australian Dollar',
@@ -32,3 +45,38 @@ const currencies = {
   ZAR: 'South African Rand',
   EUR: 'Euro',
 };
+
+function generateOptions(options){
+  return Object.entries(options).map(
+    ([currCode, currName]) => 
+    `<option value="${currCode}">${currCode} - ${currName}</option>`
+  ).join('');
+}
+
+async function fetchRates(base = `USD`) {
+  const res = await fetch(`${endPoint}?base=${base}`);
+  const rates = await res.json();
+  return rates;
+}
+
+async function convert(amount, from, to){
+  if (!ratesByBase[from]){
+    const rates = await fetchRates(from);
+    ratesByBase[from] = rates;
+  };
+  const convertedAmount = ratesByBase[from].rates[to];
+  const convertedAmountTotal = convertedAmount * amount;
+  return convertedAmountTotal;
+}
+
+async function handle(event){
+  const rawAmount = await convert(fromInput.value, fromSelect.value, toSelect.value);
+  toAmount.textContent = rawAmount;
+}
+
+
+form.addEventListener(`input`, handle)
+
+const optionsHTML = generateOptions(currencies);
+fromSelect.innerHTML = optionsHTML;
+toSelect.innerHTML = optionsHTML;
