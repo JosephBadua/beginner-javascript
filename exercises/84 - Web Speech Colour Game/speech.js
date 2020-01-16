@@ -1,21 +1,15 @@
 import { handleResult } from './handlers';
-import { colorsByLength, isDark } from './colors';
-
-const colorsEl = document.querySelector('.colors');
-
-function displayColors(colors) {
-  return colors
-    .map(
-      color =>
-        `<span class="color ${color} ${
-          isDark(color) ? 'dark' : ''
-        }" style="background: ${color};">${color}</span>`
-    )
-    .join('');
-}
+import { colorsByLength, isDark } from './colors' ;
+const colorsEl = document.querySelector(`.colors`)
 
 window.SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
+window.SpeechRecognition || window.webkitSpeechRecognition;
+
+function displayColors(colors) {
+  return colors.map(color => {
+    return `<span class="color ${isDark(color) ? 'dark': ''}" style="background: ${color}">${color}</span>`
+  }).join(" ")
+}
 
 function start() {
   // see if their browser supports this
