@@ -7,7 +7,7 @@ window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function displayColors(colors) {
   return colors.map(color => {
-    return `<span class="color ${isDark(color) ? 'dark': ''}" style="background: ${color}">${color}</span>`
+    return `<span class="color ${color} ${isDark(color) ? 'dark': ''}" style="background: ${color}">${color}</span>`
   }).join(" ")
 }
 
